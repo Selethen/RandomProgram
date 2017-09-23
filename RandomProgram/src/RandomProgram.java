@@ -80,6 +80,9 @@ public class RandomProgram {
 		
 		JMenu help = new JMenu("Help");
 		menuBar.add(help);
+		JMenuItem howToPlay = new JMenuItem("How to play?");
+		howToPlay.addActionListener(new NewWindowListener());
+		help.add(howToPlay);
 		
 		JToggleButton redButton = new JToggleButton("RED");
 		redButton.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
@@ -299,5 +302,13 @@ public class RandomProgram {
 	    public void actionPerformed(ActionEvent e) {
 	        System.exit(0);
 	    }
+	}
+	
+	private class NewWindowListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			HelpWindow helpWindow = new HelpWindow();
+			helpWindow.newScreen();
+		}
 	}
 }
